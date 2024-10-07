@@ -1,10 +1,10 @@
 import turtle
 from turtle import left, right, backward, forward
-turtle.speed(8)
 
 turtle.up()
 turtle.goto(0,-150)
 turtle.down()
+turtle.speed(10)
 
 # I think 0 is best, but 5, 10, and 15 all work, too.
 angle = 0
@@ -40,7 +40,7 @@ draw_big_star()
 
 
 # Similar to above, this can be any number. For example, 30, 80, and 160.
-side = 100
+side = 40
 
 def draw_small_star():
     turtle.color("black")
@@ -71,12 +71,12 @@ def draw_many_small(number):
     for i in range (number):
         turtle.up()
         turtle.goto(0,30)
-        right(44+i)
+        turtle.setheading(0)
+        right(360/number*i)
         forward(240)
         turtle.down()
         draw_small_star()
 
-draw_many_small(6)
-
+draw_many_small(12)
 
 turtle.exitonclick()
