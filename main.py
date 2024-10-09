@@ -1,15 +1,16 @@
 import turtle
 from turtle import left, right, backward, forward
 
+turtle.speed(10)
+
 turtle.up()
 turtle.goto(0,-150)
 turtle.down()
-turtle.speed(10)
 
 # I think 0 is best, but 5, 10, and 15 all work, too.
 angle = 0
 
-# This can be anything, depending on how big you want the star to be. 
+# This can be anything, depending on how big you want the large star to be. 
 # Some options are 100, 200, and 400.
 side = 325
 
@@ -23,24 +24,25 @@ def draw_big_star():
             left(angle)
     draw_star(side,5)
 
-    def draw_big_again(color):
+    def draw_big_layers(color):
         turtle.color(color)
         turtle.up()
         right(angle)
-        backward(15)
-        right(5)
+        backward(12)
+        right(4)
         turtle.down()
         draw_star(side,5)
 
-    draw_big_again("blue")
-    draw_big_again("green")
-    draw_big_again("cyan")
+    draw_big_layers("blue")
+    draw_big_layers("green")
+    draw_big_layers("cyan")
 
 draw_big_star()
 
 
-# Similar to above, this can be any number. For example, 30, 80, and 160.
-side = 40
+# Like above, this can be any number. It changes the size of the small star.
+# For example, 30, 80, and 160.
+side = 80
 
 def draw_small_star():
     turtle.color("black")
@@ -58,8 +60,8 @@ def draw_small_star():
         turtle.color(color)
         turtle.up()
         right(angle)
-        backward(5)
-        right(5)
+        backward(3)
+        right(4)
         turtle.down()
         draw_star(side,5) 
 
@@ -72,11 +74,13 @@ def draw_many_small(number):
         turtle.up()
         turtle.goto(0,30)
         turtle.setheading(0)
-        right(360/number*i)
+        right((360/number)*i)
         forward(240)
         turtle.down()
         draw_small_star()
 
-draw_many_small(12)
+#Changing this parameter changes the number of small stars.
+#Some other examples are be 6, 15, and 18 (but can be any).
+draw_many_small(10)
 
 turtle.exitonclick()
